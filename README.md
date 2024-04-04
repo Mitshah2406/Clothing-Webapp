@@ -2,11 +2,11 @@
 
 ## SERVER
 
-create .env file, copy params from .env.example and give MONGO_URI
-cd server
-npm run dev
+create .env file, copy params from .env.example and give MONGO_URI\n
+cd server\n
+npm run dev\n
 
 ## CLIENT
 
-cd client 
+cd client\n 
 npm run dev
