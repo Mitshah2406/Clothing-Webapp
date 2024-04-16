@@ -13,7 +13,7 @@ router.post("/auth/signIn",userController.signIn)
 
 router.post("/product/addProduct",authMiddleware.verifyToken,productController.addProduct)
 
-router.get("/product/getAllProducts",authMiddleware.verifyToken,productController.getAllProducts)
+router.get("/product/getAllProducts",productController.getAllProducts)
 router.get("/product/getSingleProductById/:id",authMiddleware.verifyToken,productController.getSingleProductById)
 router.get("/product/getProductsInPriceRange/:startPrice/:endPrice",authMiddleware.verifyToken,productController.getProductsInPriceRange)
 router.get("/product/getProductsByCategory/:category",authMiddleware.verifyToken,productController.getProductsByCategory)

@@ -13,8 +13,15 @@ import Footer from './Components/Footer/Footer';
 import men_banner from './Components/assets/banner_mens.png';
 import women_banner from './Components/assets/banner_women.png';
 import kid_banner from './Components/assets/banner_kids.png';
-
+import { useEffect } from 'react';
+import axios from 'axios'
 function App() {
+  useEffect(()=>{
+    console.log("Here");
+      axios.get("http://localhost:4000/product/getAllProducts",  {"Content-Type": "application/json"}).then((res)=>{
+        console.log(res.data);
+      })
+  });
   return (
     <div >
       <BrowserRouter>

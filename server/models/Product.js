@@ -15,6 +15,7 @@ Product.prototype.cleanUp = function () {
         category: this.data.category, // SHIRTS, JEANS, CASUALS, SPORTS
         subCategory: this.data.subCategory, // FORMALS, PARTYWEAR, DAILYWEAR
         productColors: this.data.productColors, // ['RED','GREEN','BLUE','BLACK','WHITE','YELLOW']
+        gender: this.data.gender, // ['MALE', 'FEMALE', 'UNISEX']
         productType: this.data.productType, // CLOTH, SHOES, WATCH, GLASSES
         productSizes: this.data.productSizes, // ['XS','S','M','L','XL','XXL'] OR [9,10,11,12,13,14,15]
         createdDate: new Date(),

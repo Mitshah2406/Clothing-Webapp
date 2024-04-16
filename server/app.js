@@ -14,6 +14,7 @@ const flash = require('connect-flash')
 // const csrf = require('csurf')
 
 const app = express()
+app.use(cors())
 const sanitizeHTML = require('sanitize-html')
 
 //To access the data user inputs in form.
