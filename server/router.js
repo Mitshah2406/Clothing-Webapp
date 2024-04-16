@@ -11,7 +11,7 @@ router.post("/auth/signIn",userController.signIn)
 
 //PRODUCT
 
-router.post("/product/addProduct",authMiddleware.verifyToken,productController.addProduct)
+router.post("/product/addProduct",productController.addProduct)
 
 router.get("/product/getAllProducts",productController.getAllProducts)
 router.get("/product/getSingleProductById/:id",authMiddleware.verifyToken,productController.getSingleProductById)
