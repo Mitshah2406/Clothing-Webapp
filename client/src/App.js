@@ -9,6 +9,7 @@ import ShopCategory from './Pages/ShopCategory';
 import Cart from './Pages/Cart';
 import LoginSignup from './Pages/LoginSignup';
 import Footer from './Components/Footer/Footer';
+import Addproduct from './Pages/Addproduct'
 
 import men_banner from './Components/assets/banner_mens.png';
 import women_banner from './Components/assets/banner_women.png';
@@ -36,6 +37,7 @@ function App() {
         </Route>
         <Route path='/cart' element={<Cart/>}/>
         <Route path='/login' element={<LoginSignup/>}/>
+        <Route path='/addproduct' element={<Addproduct/>}/>
       </Routes>
       <Footer />
       </BrowserRouter>
