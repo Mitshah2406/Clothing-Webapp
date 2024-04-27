@@ -46,9 +46,11 @@ exports.addProduct = async (req, res) => {
 
         let product = new Product(req.body);
         let result = await product.addProduct();
+        console.log("Product added");
         res.status(200).json({ message: "Product added", productId: result._id, product: result });
     } catch (error) {
         console.log(error);
+        console.log(req.body);
         res.status(500).json({ message: "Internal server error" })
     }
 }

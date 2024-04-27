@@ -1,5 +1,5 @@
 import React,{ useContext, useState } from 'react'
-
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
 import './Navbar.css'
 
 import logo from '../assets/logo.png'
@@ -16,7 +16,7 @@ const Navbar=()=>{
         <div className='navbar'>
             <div className='nav-logo'>
                 <img src={logo} alt="" />
-                <p>OUR TITLE</p> {/*MAKE CHANGE*/}
+                <p>STOP N SHOP</p> {/*MAKE CHANGE*/}
             </div>
             <ul className="nav-menu">
                 <li onClick={()=>{setMenu("shop")}}><Link style={{textDecoration:'none'}} to='/'>Shop</Link>{menu==='shop'?<hr/>:<></>}</li>
@@ -26,7 +26,12 @@ const Navbar=()=>{
             </ul>
             <div className='nav-login-cart'>
                 <Link to='/addproduct'><button>Add Product</button></Link>
-                <Link to='/login'><button>Login</button></Link>
+                <SignedOut>
+                    <SignInButton />
+                </SignedOut>
+                <SignedIn>
+                    <UserButton />
+                </SignedIn>
                 <Link to='/cart'><img src={cart_icon} alt=""/></Link>
                 <div className="nav-cart-count">{getTotalCartItems()}</div>
             </div>

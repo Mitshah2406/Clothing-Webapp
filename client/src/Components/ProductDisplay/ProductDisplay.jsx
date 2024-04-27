@@ -3,7 +3,7 @@ import './ProductDisplay.css'
 import star_icon from '../assets/star_icon.png'
 import star_dull_icon from '../assets/star_dull_icon.png'
 import { ShopContext } from '../../context/ShopContext'
-
+import p_14 from '../assets/product_14.png'
 const ProductDisplay=(props)=>{
     const {product}=props;
     const {addToCart}=useContext(ShopContext)
@@ -11,17 +11,17 @@ const ProductDisplay=(props)=>{
         <div className="productdisplay">
             <div className="productdisplay-left">
                 <div className="productdisplay-img-list">
-                    <img src={product.image} alt=""/>
-                    <img src={product.image} alt=""/>
-                    <img src={product.image} alt=""/>
-                    <img src={product.image} alt=""/>
+                    <img src={p_14} alt=""/>
+                    <img src={p_14} alt=""/>
+                    <img src={p_14} alt=""/>
+                    <img src={p_14} alt=""/>
                 </div>
                 <div className="productdisplay-img">
-                    <img className='productdisplay-main-img' src={product.image} alt=""/>
+                    <img className='productdisplay-main-img' src={p_14} alt=""/>
                 </div>
             </div>
             <div className="productdisplay-right">
-                <h1>{product.name}</h1>
+                <h1>{product.productTitle}</h1>
                 <div className="productdisplay-right-stars">
                     <img src={star_icon} alt=""/>
                     <img src={star_icon} alt=""/>
@@ -32,28 +32,29 @@ const ProductDisplay=(props)=>{
                 </div>
                 <div className='productdislay-right-prices'>
                     <div className="productdisplay-right-price-old">
-                        ${product.old_price}
+                        ${product.productPrice+200}
                     </div>
                     <div className="productdislay-right-price-new">
-                        ${product.new_price}
+                        ${product.productPrice}
                     </div>
                 </div>
                 <div className="productdisplay-right-description">
-                    abccc
+                    {product.productDescription}
                 </div>
                 <div className="productdisplay-right-size">
                     <h1>Select Size</h1>
                     <div className="productdisplay-right-size">
-                        <div>S</div>
-                        <div>M</div>
-                        <div>L</div>
-                        <div>XL</div>
-                        <div>XXL</div>
+                     {
+                            product.productSizes.map((size,i)=>{
+                                return <div key={i} className="productdisplay-right-size-box"
+                                >{size}</div>
+                            })
+                     }
                     </div>
                 </div>
-                <button onClick={()=>{addToCart(product.id)}}>ADD TO CART</button>
-                <p className='product-dislay-right-category'><span>Category :</span>Women, T-shirt,Crop top</p>
-                <p className='product-dislay-right-category'><span>Tags :</span>Mordern ,latest</p>
+                <button onClick={()=>{addToCart(product._id)}}>ADD TO CART</button>
+                <p className='product-dislay-right-category'><span>Category :</span>{product.category}, {product.subCategory}</p>
+                <p className='product-dislay-right-category'><span>Tags :</span>{product.productType}, {product.gender}</p>
 
             </div>
         </div>

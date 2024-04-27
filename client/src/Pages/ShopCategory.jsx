@@ -3,9 +3,13 @@ import './CSS/ShopCategory.css'
 import { ShopContext } from '../context/ShopContext'
 import dropdown_icon from '../Components/assets/dropdown_icon.png'
 import Item from '../Components/Item/Item'
+import all_product from '../Components/assets/all_product'
+import p14_img from "../Components/assets/product_14.png";
 
 const ShopCategory=(props)=>{
-    const {all_product}=useContext(ShopContext)
+    const {filterProductsByGender}=useContext(ShopContext)
+  
+    const currentUrl = window.location.pathname.split('/')[1];
     return (
         <div className='shop-category'>
             <img className='shopcategory-banner' src={props.banner} alt=""/>
@@ -18,13 +22,11 @@ const ShopCategory=(props)=>{
                 </div>
             </div>
             <div className="shopcategory-products">
-                {all_product.map((item,i)=>{
-                    if(props.category===item.category){
-                        return <Item key={i} id={item.id} name={item.name} image={item.image} new_price={item.new_price} old_price={item.old_price}/>
-                    }
-                    else{
-                        return null;
-                    }
+                {filterProductsByGender(currentUrl =='mens' ? "MALE":"FEMALE").map((item,i)=>{
+                    console.log(item._id)
+              
+                        return <Item key={i} id={item._id} name={item.productTitle} image={p14_img} new_price={item.productPrice} old_price={item.productPrice+200}/>
+                  
                 })}
             </div>
             <div className="shopcategory-loadmore">

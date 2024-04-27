@@ -14,26 +14,22 @@ import Addproduct from './Pages/Addproduct'
 import men_banner from './Components/assets/banner_mens.png';
 import women_banner from './Components/assets/banner_women.png';
 import kid_banner from './Components/assets/banner_kids.png';
-import { useEffect } from 'react';
-import axios from 'axios'
+import { Toaster } from 'react-hot-toast';
+
 function App() {
-  useEffect(()=>{
-    console.log("Here");
-      axios.get("http://localhost:4000/product/getAllProducts",  {"Content-Type": "application/json"}).then((res)=>{
-        console.log(res.data);
-      })
-  });
+
   return (
     <div >
+      <div><Toaster /></div>
       <BrowserRouter>
       <Navbar/>
       <Routes>
         <Route path='/' element={<Shop/>}/>
         <Route path='/mens' element={<ShopCategory banner={men_banner} category="men"/>}/>
-        <Route path='/womens' element={<ShopCategory banner={women_banner} category="women"/>}/>
-        <Route path='/kids' element={<ShopCategory banner={kid_banner} category="kid"/>}/>
-        <Route path='/product' element={<Product/>}>
-            <Route path=':productId' element={<Product/>} />
+          <Route path='/womens' element={<ShopCategory banner={women_banner} category="women"  />}/>
+          <Route path='/kids' element={<ShopCategory banner={kid_banner} category="kid"  />}/>
+        <Route path='/product' element={<Product />}>
+            <Route path=':_id' element={<Product  />} />
         </Route>
         <Route path='/cart' element={<Cart/>}/>
         <Route path='/login' element={<LoginSignup/>}/>
