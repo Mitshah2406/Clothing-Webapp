@@ -20,7 +20,7 @@ const ShopContextProvider=(props)=>{
        const getAllProducts = async () => {
 
     
-           axios.get("http://localhost:4000/product/getAllProducts", { "Content-Type": "application/json" }).then((res) => {
+           axios.get("https://clothing-webapp.onrender.com/product/getAllProducts", { "Content-Type": "application/json" }).then((res) => {
             //    console.log(res.data);
                setAllProducts(res.data)
            })

@@ -52,7 +52,7 @@ const Addproduct = () => {
 
         try {
             // Send the new product data to the server
-            const response = await axios.post('http://localhost:4000/product/addProduct', newProduct);
+            const response = await axios.post('https://clothing-webapp.onrender.com/product/addProduct', newProduct);
             console.log('Product added successfully:', response.data);
             toast.success('Product added successfully');
 
