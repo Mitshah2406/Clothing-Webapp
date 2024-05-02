@@ -38,8 +38,9 @@ Product.prototype.addProduct = async function () {
 
 Product.prototype.getAllProducts = async function () {
     try {
-        let products = await productsCollection.find({}).toArray();
+        let products = await productsCollection.find({ createdDate: { $gte: new Date("2024-04-30") } }).toArray();
         return products;
+
     } catch (error) {
         console.log(error);
         return error
